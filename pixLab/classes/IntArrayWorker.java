@@ -128,4 +128,16 @@ public class IntArrayWorker
    }
    return n;
  }
+ public int getColTotal(int col)
+ {
+   int answer=0;
+   {
+     for(int i=0; i<matrix.length; i++)
+    {
+      answer=matrix[i][col]+answer;
+     }
+   }
+   return answer;
+ }
+        
 }
