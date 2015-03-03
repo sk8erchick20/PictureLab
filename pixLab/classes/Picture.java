@@ -197,6 +197,24 @@ public class Picture extends SimplePicture
           leftPixel.setColor(Color.WHITE);
       }
     }
+     for (int row = 0; row < pixels.length-1; row++)
+     {
+       for (int col = 0;
+            col < pixels[0].length-1; col++)
+       {
+         leftPixel = pixels[row][col];
+         rightPixel = pixels[row+1][col];
+         rightColor = rightPixel.getColor();
+         if (leftPixel.colorDistance(rightColor) >edgeDist)
+         {
+           leftPixel.setColor(Color.BLACK);
+         }
+         else
+         {
+           leftPixel.setColor(Color.WHITE);
+         }
+       }
+     }
   }
   public void keepOnlyBlue()
 {
@@ -351,7 +369,7 @@ public class Picture extends SimplePicture
   {
     Picture a= new Picture("flower2.jpg");
     Picture b= new Picture("beach.jpg");
-    b.grayScale();
+    b.grayscale();
     Picture c=new Picture("robot.jpg");
     c.negate();
     this.copy(a,100,0);
